@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://java.sun.com/jsf/html ">
+
+<h:head>
+    <title>Pagina Inicial</title>
+    <h:outputStylesheet library="css" name="main.css"/>
+</h:head>
+
+<h:body>
+    <div class="aside">
+        <div class="user-info">
+            <div class="logo-img">
+                <img src="./resources/img/logo-dgb-black.png"/>
+            </div>
+        </div>
+        <div class="aside-menu">
+            <p:menu style="background-color: transparent; border: none; width: 100%">
+                <p:submenu>
+                    <p:menuitem styleClass="menu-hover" style="font-size: 1rem" value="Usuario" icon="pi pi-user"
+                                url="index.xhtml"/>
+                </p:submenu>
+            </p:menu>
+        </div>
+    </div>
+    <div class="header">
+        <div class="header-right">
+            <div class="separator"></div>
+            <div class="btn-logout">
+                <p:commandButton icon="pi pi-sign-out" disabled="true" styleClass="ui-button-danger"/>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="main-content">
+            <p:breadCrumb>
+                <p:menuitem value="Home" url="#"/>
+                <p:menuitem value="Usuarios" url="#"/>
+            </p:breadCrumb>
+            <div class="user-list">
+                <div class="title-menu">
+                    <div class="title-section">
+                        <h2 class="menu-title">Lista de Usuários</h2>
+                    </div>
+                    <div class="add">
+                        <p:button value="Cadastrar" styleClass="ui-button-add" outcome="cadastro"/>
+                        <p:button value="Editar Usuários" styleClass="ui-button-add" outcome="adminpage"/>
+                    </div>
+                </div>
+                <h:form id="myform">
+                    <p:inputText value="#{userController.searchText}" placeholder="Procurar..."/>
+                    <p:commandButton action="#{userController.search()}" update="users-table" icon="pi pi-search"
+                                     style="margin-left: 14px"/>
+                    <p:dataTable id="users-table" value="#{userController.users}" var="user" paginator="true" rows="5">
+                        <p:column headerText="Nome">
+                            <p:graphicImage value="#{user.photo}"
+                                            style="vertical-align: middle; border-radius: 50%; width: 1.6rem; height:  1.5rem; margin-right: 1rem"/>
+                            <h:outputText value="#{user.name}"/>
+                        </p:column>
+                        <p:column headerText="Endereço">
+                            <h:outputText value="#{user.adress}"/>
+                        </p:column>
+                        <p:column headerText="Data de Nascimento">
+                            <h:outputText value="#{user.formattedDate}">
+                                <f:convertDateTime pattern="dd-MM-yy"/>
+                            </h:outputText>
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+            </div>
+        </div>
+    </div>
+
+
+</h:body>
+</html>

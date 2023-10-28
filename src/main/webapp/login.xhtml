@@ -1,0 +1,74 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Pagina Inicial</title>
+    <h:outputStylesheet library="css" name="main.css" />
+</h:head>
+
+<h:body>
+    <div class="login-container">
+        <div class="login-area">
+            <div class="login-area--header">
+                <h4 style="font-family: Arial, sans-serif; font-size: 2rem">Login</h4>
+            </div>
+            
+            <div class="login-area--body">
+                <h:form>
+                <div class="login-area--body--block">
+                    <p:outputLabel for="name" value="Nome" />
+                    <p:inputText id="name" value="#{loginSession.username}" required="true" />
+                </div>
+                <div class="login-area--body--block">
+                    <p:outputLabel for="password" value="Senha" />
+                    <p:password id="password" value="#{loginSession.password}" required="true" />
+                </div>
+                <div class="login-area--footer">
+                    <p:commandButton value="Entrar" action="#{loginSession.login()}"/>
+                </div>
+                </h:form>
+            </div> 
+            
+        </div>
+    </div>
+    
+    <style>
+        .login-container{
+            display: flex;
+            height: 100vh;
+            max-height: 100vh;
+        }
+
+        .login-area{
+            min-width: 20%;
+            max-width: 20%;
+            height: 20rem;
+            margin: auto;
+            box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);
+            padding: 1rem 1.4rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .login-area--header{
+            display: flex;
+            justify-content: center;
+        }
+        
+        .login-area--body--block{
+            display: flex;
+            flex-direction: column;
+            margin-top: 2rem;
+        }
+        
+        .login-area--footer{
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    
+</h:body>
+</html>

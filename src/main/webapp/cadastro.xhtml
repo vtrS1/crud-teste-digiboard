@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Pagina Inicial</title>
+    <h:outputStylesheet library="css" name="main.css" />
+</h:head>
+
+<h:body>
+    <f:event listener="#{loginSession.verifyAuthentication()}" type="preRenderView" />
+    <div class="aside">
+        <div class="aside-menu">
+            <p:menu style="background-color: transparent; border: none; width: 100%">
+                <p:submenu>
+                    <p:menuitem styleClass="menu-hover" style="font-size: 1rem" value="Usuario" icon="pi pi-user" url="index.xhtml" />
+                </p:submenu>
+            </p:menu>
+        </div>
+    </div>
+    <div class="header">
+        <div class="header-right">
+            <div class="separator"></div>
+            <div class="btn-logout">
+                <p:commandButton icon="pi pi-sign-out" action="#{loginSession.logout()}" styleClass="ui-button-danger" />
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="main-content">
+            <p:breadCrumb style="background-color: #f8f9fa">
+                <p:menuitem value="Home" url="#" />
+                <p:menuitem value="Usuarios" url="index.xhtml" />
+                <p:menuitem value="Cadastro de usuários" url="#" />
+            </p:breadCrumb>
+            <div class="user-list">
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
+                    <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
+                    <p:commandButton value="Sim" action="#{userController.addUser()}" styleClass="ui-confirmdialog-yes" ajax="true" />
+                </p:confirmDialog>
+                <h2 class="menu-title">Cadastrar Usuário</h2>
+                <div class="area-form">
+                    <h5 style="font-family: Arial, sans-serif; font-size: 1.2rem">Registro</h5>
+                    <h:form enctype="multipart/form-data" id="myform">
+                        <div class="flex-form">
+                            <div class="flex-form-items">
+                                <p:outputLabel for="nome" value="Primeiro nome" />
+                                <p:inputText id="nome" value="#{userController.user.name}" required="true" />
+                            </div>
+                            <div class="flex-form-items">
+                                <p:outputLabel for="endereco" value="Endereço" />
+                                <p:inputText id="endereco" value="#{userController.user.adress}" required="true" />
+                            </div>
+                            <div class="flex-form-items">
+                                <p:outputLabel for="nascimento" value="Data de Nascimento" />
+                                <p:datePicker yearRange="1960:2023" monthNavigator="true" yearNavigator="true" style="width: 100%" id="nascimento" value="#{userController.user.date}" required="true" pattern="dd/MM/yyyy" />
+                            </div>
+                            <div class="flex-form-items">
+                                <p:fileUpload  listener="#{userController.handleFileUpload}" mode="advanced" auto="true" />
+                            </div>
+                            <p:commandButton value="Cadastrar" styleClass="mr-2">
+                                <p:confirm header="Confirmação" message="Deseja realmente cadastrar?" icon="pi pi-exclamation-triangle"/>
+                            </p:commandButton>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</h:body>
+</html>

@@ -1,0 +1,132 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.aside{
+    width: 16.5%;
+    height: 100vh;
+    background-color: #212529;
+    position: fixed;
+}
+
+.header{
+    margin-left: 16.5%;
+    padding: 0 .6rem;
+    height: 3.5rem;
+    max-height: 3.5rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.main{
+    margin-left: 16.5%;
+}
+
+.user-info{
+    height: 3.5rem;
+    padding: 0 1.7rem;
+}
+
+.aside-menu{
+    width: 100%;
+    padding: 1rem 1.4rem 0;
+}
+
+.logo-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid #4b545c;
+}
+
+.logo-img img{
+    width: 65%;
+    height: 70%;
+}
+
+.ui-widget-header{
+    margin: 0!important;
+    padding: 0!important;
+    border: none!important;
+}
+
+.ui-menuitem-icon, .ui-menuitem-text{
+    color: #c2c7d0!important;
+}
+
+.menu-hover:hover{
+    background-color: rgba(128, 128, 128, 0.1)!important;
+}
+
+.header-right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+.separator {
+    width: 1px;
+    background-color: #ccc;
+    height: 1.4rem;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.ui-button-danger{
+    background-color: transparent!important;
+    border: none!important;
+}
+
+.ui-button-icon-left{
+    color: black!important;
+}
+
+.ui-button-danger:hover{
+    background-color: rgba(128, 128, 128, 0.3)!important;
+}
+
+.user-list{
+    margin-top: 1rem;
+}
+
+.main-content{
+    padding: 1rem 1rem;
+}
+
+.menu-title{
+    color: black;
+    font-family: Arial, sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.title-menu{
+    display: flex;
+    justify-content: space-between;
+}
+
+.area-form{
+    background-color: #ffffff;
+    box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);
+    padding: 1rem 1rem;
+}
+
+.flex-form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.flex-form-items{
+    min-width: 48%;
+    max-width: 48%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
